@@ -17,8 +17,8 @@ jobs:
     name: Build and Deploy Job
     steps:
       - name: Step 1 - Echo out a GitHub Actions Secret to the logs
-        run: |
-          echo "$TEST" | sed 's/./& /g' 
+        run:
+          printenv
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
