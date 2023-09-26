@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Step 1 - Echo out a GitHub Actions Secret to the logs
         run:
-          printenv
+          echo "$TEST"
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
