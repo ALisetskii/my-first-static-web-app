@@ -8,14 +8,13 @@ on:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
-
+env:
+  TEST: ${{secrets.SECRET_TOKEN}}
 jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
-    env:
-      TEST: ${{secrets.SECRET_TOKEN}}
     steps:
       - name: Step 1 - Echo out a GitHub Actions Secret to the logs
         run: |
