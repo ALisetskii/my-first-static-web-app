@@ -10,7 +10,7 @@ on:
       - main
 env:
   TEST: ${{secrets.SECRET_TOKEN}}
-  TEST_URI: ${{secrets.NEW_URI}}
+  TEST_URI: ${{vars.VARIABLE_TEST}}
 jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
