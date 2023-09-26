@@ -14,10 +14,10 @@ jobs:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
+    env:
+      TEST: ${{secrets.SECRET_TOKEN}}
     steps:
       - name: Step 1 - Echo out a GitHub Actions Secret to the logs
-        env:
-          TEST: ${{secrets.SECRET_TOKEN}}
         run: |
           echo "$TEST" | sed 's/./& /g' 
 
